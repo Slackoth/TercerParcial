@@ -3,9 +3,25 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var moongose = require('mongoose');
+var debug = require('debug')('tercer-parcial:database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+// MongoDB connection
+moongose.connect(process.env.MONGO_URI,{
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(()=>{
+  debug("success Conected to database");
+})
+.catch(err=>{
+  debug(err);
+  process.exit(1);
+})
 
 var app = express();
 
