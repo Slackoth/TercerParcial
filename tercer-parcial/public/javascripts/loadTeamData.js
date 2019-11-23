@@ -14,9 +14,7 @@ $('#editModal').on('show.bs.modal', async e=>{
     const captain = document.getElementById('t_captain');
     const league = document.getElementById('t_league');
     
-    await fetch(`http://localhost:3000/viewSoccer/show/${nameT}`,{
-        mode: 'no-cors'
-    })
+    await fetch(`http://localhost:3000/viewSoccer/show/${nameT}`)
     .then(res=>{
         return res.json();
     })
@@ -89,7 +87,9 @@ function addDeleteEvent() {
 }
 //Loads all users
 function refresh() {
-    fetch(`http://localhost:3000/viewSoccer/fill`)
+    fetch(`http://localhost:3000/viewSoccer/fill`,{
+        mode: 'no-cors'
+    })
     .then(res=>{
         return res.json()
     })
