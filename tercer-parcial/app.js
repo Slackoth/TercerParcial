@@ -8,6 +8,8 @@ var debug = require('debug')('tercer-parcial:database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var createUserRouter =  require('./routes/createUser');
+var viewUserRouter = require('./routes/viewUser');
 
 // MongoDB connection
 moongose.connect(process.env.MONGO_URI,{
@@ -35,8 +37,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//router
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/createUser', createUserRouter);
+app.use('/viewUser', viewUserRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
