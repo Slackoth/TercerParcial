@@ -25,7 +25,7 @@ const getAll = (req,res,next)=>{
 
 const register = (req,res,next)=>{
     debug("New soccer team: ", {body: req.body});
-    console.log(req.body.name);
+    //terconsole.log(req.body.name);
     
     if(req.body.name == '') {
         return res.status(400).json({message: 'Invalid request'})
