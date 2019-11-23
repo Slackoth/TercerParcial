@@ -18,12 +18,18 @@ const getAll = (req,res,next)=>{
         return res.status(200).json(teams);
     })
     .catch(err=>{
-        next(err)
+        //next(err)
+        return res.status(400).json({message: 'Invalid request'})
     });
 }
 
 const register = (req,res,next)=>{
     debug("New soccer team: ", {body: req.body});
+    console.log(req.body.name);
+    
+    if(req.body.name == '') {
+        return res.status(400).json({message: 'Invalid request'})
+    }
 
     soccer.findOne({
         name: req.body.name
@@ -50,11 +56,13 @@ const register = (req,res,next)=>{
         .header('Location','/createdTeam/' + team._id)
         .status(201)
         .json({
-            message: 'Soccer team created'
+            soccer_team: team.name
         });
     })
     .catch(err=>{
-        next(err);
+        //next(err);
+        return res.status(400).json({message: 'Invalid request'})
+    
     });
 }
 
@@ -84,6 +92,10 @@ const update = (req,res,next)=>{
         ...req.body
     }
 
+    if (req.params.name == '') {
+        return res.status(400).json({message: 'Invalid request'})
+    }
+
     soccer.findOneAndUpdate({
         name: req.params.name
     }, update, {
@@ -98,7 +110,8 @@ const update = (req,res,next)=>{
         }
     })
     .catch(err=>{
-        next(err);
+        //next(err);
+        return res.status(400).json({message: 'Invalid request'})
     });
 }
 
@@ -106,6 +119,10 @@ const deleteTeam = (req, res, next) => {
     debug("Delete team: ", {
         name: req.params.name
     });
+
+    if (req.params.name == '') {
+        return res.status(400).json({message: 'Invalid request'})
+    }
     
     soccer.findOneAndDelete({name: req.params.name})
     .then(data=>{
@@ -115,7 +132,8 @@ const deleteTeam = (req, res, next) => {
 
         else res.status(404).send();
     }).catch( err => {
-        next(err);
+        //next(err);
+        return res.status(400).json({message: 'Invalid request'})
     })
 }
 

@@ -31,16 +31,16 @@ html(lang="en")
                     div(class="modal-body")
                         div(class="form-group")
                             label(for="t_country")='Country'
-                            input(type="text" class="form-control" id="t_country" placeholder="Country" name='country')
+                            input(type="text" class="form-control" id="t_country" placeholder="Country" name='country' pattern='[a-zA-Z]')
                         div(class="form-group")
                             label(for="t_director")='Technical director'
-                            input(type="text" class="form-control" id="t_director" placeholder="Technical director" name='director')
+                            input(type="text" class="form-control" id="t_director" placeholder="Technical director" name='director' pattern='[a-zA-Z]')
                         div(class="form-group")
                             label(for="t_captain")='Captain'
-                            input(type="text" class="form-control" id="t_captain" placeholder="Captain" name='captain')
+                            input(type="text" class="form-control" id="t_captain" placeholder="Captain" name='captain' pattern='[a-zA-Z]')
                         div(class="form-group")
                             label(for="t_league")='League'
-                            input(type="text" class="form-control" id="t_league" placeholder="League" required="required" name='password')
+                            input(type="text" class="form-control" id="t_league" placeholder="League" required="required" name='password' pattern='[a-zA-Z]')
                     div(class="modal-footer")
                         button(class="btn btn-secondary" data-dismiss="modal" id='closeBtn')='Close'
                         button(type='button' class="btn btn-dark" id='editBtn')='Save'
