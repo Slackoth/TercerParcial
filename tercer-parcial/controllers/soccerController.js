@@ -18,8 +18,8 @@ const getAll = (req,res,next)=>{
         return res.status(200).json(teams);
     })
     .catch(err=>{
-        //next(err)
-        return res.status(400).json({message: 'Invalid request'})
+        next(err)
+        //return res.status(400).json({message: 'Invalid request'})
     });
 }
 
@@ -60,8 +60,8 @@ const register = (req,res,next)=>{
         });
     })
     .catch(err=>{
-        //next(err);
-        return res.status(400).json({message: 'Invalid request'})
+        next(err);
+        //return res.status(400).json({message: 'Invalid request'})
     
     });
 }
@@ -110,8 +110,8 @@ const update = (req,res,next)=>{
         }
     })
     .catch(err=>{
-        //next(err);
-        return res.status(400).json({message: 'Invalid request'})
+        next(err);
+        //return res.status(400).json({message: 'Invalid request'})
     });
 }
 
@@ -132,8 +132,8 @@ const deleteTeam = (req, res, next) => {
 
         else res.status(404).send();
     }).catch( err => {
-        //next(err);
-        return res.status(400).json({message: 'Invalid request'})
+        next(err);
+        //return res.status(400).json({message: 'Invalid request'})
     })
 }
 
