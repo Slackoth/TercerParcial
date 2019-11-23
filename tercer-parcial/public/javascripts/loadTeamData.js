@@ -87,9 +87,7 @@ function addDeleteEvent() {
 }
 //Loads all users
 function refresh() {
-    fetch(`http://localhost:3000/viewSoccer/fill`,{
-        mode: 'no-cors'
-    })
+    fetch(`http://localhost:3000/viewSoccer/fill`)
     .then(res=>{
         return res.json()
     })
