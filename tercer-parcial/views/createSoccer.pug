@@ -4,23 +4,23 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
-        title Document
+        title Create soccer team
     body
         div(class="container")
             br
             div(class='login-form')           
-                form(action='createUser/create' method='POST')
-                    h2='Create user'
+                form(action='/create' method='POST')
+                    h2='Create soccer team'
                     div(class="form-group")
-                        input(type="text" class="form-control" placeholder="Username" required="required" name='username')
+                        input(type="text" class="form-control" placeholder="Soccer team name" required="required" name='name')
                     div(class="form-group")
-                        input(type="text" class="form-control" placeholder="First name" required="required" name='first_name')
+                        input(type="text" class="form-control" placeholder="Country" required="required" name='country')
                     div(class="form-group")
-                        input(type="text" class="form-control" placeholder="Last name" required="required" name='last_name')
+                        input(type="text" class="form-control" placeholder="Technical director" required="required" name='director')
                     div(class="form-group")
-                        input(type="email" class="form-control" placeholder="@example.com" required="required" name='email')
+                        input(type="text" class="form-control" placeholder="Captain" required="required" name='captain')
                     div(class="form-group")
-                        input(type="password" class="form-control" placeholder="password" required="required" name='pass')
+                        input(type="text" class="form-control" placeholder="League" required="required" name='league')
                     div(class="form-group")
                         button(type="submit" class="btn btn-primary btn-block")='Create'
 

@@ -3,27 +3,28 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var moongose = require('mongoose');
+var mongoose = require('mongoose');
 var debug = require('debug')('tercer-parcial:database');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var createUserRouter =  require('./routes/createUser');
-var viewUserRouter = require('./routes/viewUser');
+//var usersRouter = require('./routes/users');
+var viewSoccerRouter =  require('./routes/soccerView');
+//var createUserRouter =  require('./routes/createUser');
+//var viewUserRouter = require('./routes/viewUser');
 
 // MongoDB connection
-moongose.connect(process.env.MONGO_URI,{
+mongoose.connect(process.env.MONGO_URI, {
   useCreateIndex: true,
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true 
 })
-.then(()=>{
-  debug("success Conected to database");
+.then(() => {
+  debug("success connected to database")
 })
-.catch(err=>{
+.catch((err) => {
   debug(err);
   process.exit(1);
-})
+});
 
 var app = express();
 
@@ -39,9 +40,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //router
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/createUser', createUserRouter);
-app.use('/viewUser', viewUserRouter);
+//app.use('/users', usersRouter);
+//app.use('/createUser', createUserRouter);
+//app.use('/viewUser', viewUserRouter);
+app.use('/viewSoccer', viewSoccerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
