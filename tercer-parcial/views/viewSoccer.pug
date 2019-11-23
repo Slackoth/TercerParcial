@@ -4,19 +4,20 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
-        title Document
+        title Soccer teams
     body
     div(class='container')
         br
-        h1='Users'
+        h1='Teams'
         hr
         table(class="table table-hover text-center")
             thead(class='thead-dark')
                 tr()
-                    th(scope="col" class='align-middle')='Username'
-                    th(scope="col" class='align-middle')='First name'
-                    th(scope="col" class='align-middle')='Last name'
-                    th(scope="col" class='align-middle')='Email'
+                    th(scope="col" class='align-middle')='Name'
+                    th(scope="col" class='align-middle')='Country'
+                    th(scope="col" class='align-middle')='Technical director'
+                    th(scope="col" class='align-middle')='Captain'
+                    th(scope="col" class='align-middle')='League'
                     th(scope="col" class='align-middle')='Delete'
             tbody(id='table_body')
     //-editModal
@@ -24,22 +25,22 @@ html(lang="en")
             div(class="modal-dialog modal-dialog-centered" role="document")
                 div(class="modal-content")
                     div(class="modal-header")
-                        h5(class="modal-title" id="username")
+                        h5(class="modal-title" id="t_name")
                         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
                             span(aria-hidden="true") &times;
                     div(class="modal-body")
                         div(class="form-group")
-                            label(for="first_name")='First name'
-                            input(type="text" class="form-control" id="first_name" placeholder="First name" name='name')
+                            label(for="t_country")='Country'
+                            input(type="text" class="form-control" id="t_country" placeholder="Country" name='country')
                         div(class="form-group")
-                            label(for="last_name")='Last name'
-                            input(type="text" class="form-control" id="last_name" placeholder="Last name" name='lastname')
+                            label(for="t_director")='Technical director'
+                            input(type="text" class="form-control" id="t_director" placeholder="Technical director" name='director')
                         div(class="form-group")
-                            label(for="userEmail")='Correo'
-                            input(type="text" class="form-control" id="userEmail" placeholder="example@something.com" name='email')
+                            label(for="t_captain")='Captain'
+                            input(type="text" class="form-control" id="t_captain" placeholder="Captain" name='captain')
                         div(class="form-group")
-                            label(for="pass")='Password'
-                            input(type="password" class="form-control" id="pass" placeholder="Contraseña" required="required" name='password')
+                            label(for="t_league")='League'
+                            input(type="text" class="form-control" id="t_league" placeholder="League" required="required" name='password')
                     div(class="modal-footer")
                         button(class="btn btn-secondary" data-dismiss="modal" id='closeBtn')='Close'
                         button(type='button' class="btn btn-dark" id='editBtn')='Save'
@@ -47,5 +48,5 @@ html(lang="en")
     script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous")
     script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous")
-    script(src="/javascripts/loadUserData.js")
+    script(src="/javascripts/loadTeamData.js")
     

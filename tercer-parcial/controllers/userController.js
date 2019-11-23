@@ -61,11 +61,14 @@ const register = (req,res,next)=>{
         }
     })
     .then(user=>{
+        console.log(user._id);
+        
         return res
-        .header('Location','/users/' + user._id)
+        .header('Location','/createdUser/' + user._id)
         .status(201)
         .json({
-            username: user.username
+            username: user.username,
+            id: user._id
         });
     })
     .catch(err=>{
@@ -101,18 +104,17 @@ const update = (req,res,next)=>{
 }
 
 const deleteUser = (req, res, next) => {
-    debug("Delete user", {
+    debug("Delete user: ", {
         username: req.params.username,
     });
+    
+    user.findOneAndDelete({username: req.params.username})
+    .then(data=>{
+        console.log(data);
+        
+        if (data) res.status(200).json(data);
 
-    User.findOneAndDelete({username: req.params.username})
-    .then((data) =>{
-        if (data) {
-            res.status(200).json(data);
-        }
-        else {
-            res.status(404).send();
-        }
+        else res.status(404).send();
     }).catch( err => {
         next(err);
     })
