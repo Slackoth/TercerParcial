@@ -14,7 +14,9 @@ $('#editModal').on('show.bs.modal', async e=>{
     const captain = document.getElementById('t_captain');
     const league = document.getElementById('t_league');
     
-    await fetch(`http://localhost:3000/viewSoccer/show/${nameT}`)
+    await fetch(`http://localhost:3000/viewSoccer/show/${nameT}`,{
+        mode: 'no-cors'
+    })
     .then(res=>{
         return res.json();
     })
