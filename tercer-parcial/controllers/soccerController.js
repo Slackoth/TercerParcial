@@ -15,7 +15,9 @@ const getAll = (req,res,next)=>{
     .skip(perPage * page)
     .sort({[sortProperty]: sort})
     .then(teams=>{
-        return res.status(200).json(teams);
+        return res
+        .header('Access-Control-Allow-Origin','*')
+        .status(200).json(teams);
     })
     .catch(err=>{
         next(err)
