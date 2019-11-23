@@ -16,7 +16,7 @@ const getAll = (req,res,next)=>{
     .sort({[sortProperty]: sort})
     .then(teams=>{
         return res
-        .header('Access-Control-Allow-Origin','https://soccer-team-rest.herokuapp.com/viewSoccer')
+        //.header('Access-Control-Allow-Origin','https://soccer-team-rest.herokuapp.com')
         .status(200).json(teams);
     })
     .catch(err=>{
